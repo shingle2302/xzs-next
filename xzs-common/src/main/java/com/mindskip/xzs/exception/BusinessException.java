@@ -1,0 +1,22 @@
+package com.mindskip.xzs.exception;
+
+public class BusinessException extends RuntimeException {
+    private final int code;
+
+    public BusinessException(int code, String message) {
+        super(message);
+        this.code = code;
+    }
+
+    public BusinessException(String message) {
+        this(1, message);
+    }
+
+    public BusinessException(SystemCode systemCode) {
+        this(systemCode.getCode(), systemCode.getMessage());
+    }
+
+    public int getCode() {
+        return code;
+    }
+}
